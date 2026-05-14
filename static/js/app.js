@@ -224,7 +224,14 @@ async function handleSubmit(event) {
             documentId: finalDocId // Store the final generated ID in the document itself
         };
 
+        // Re-read ZIP by id so the value cannot be dropped if the DOM selector ever mismatches.
+        const familyZipInput = document.getElementById('family-zip');
+        if (familyZipInput) {
+            dataToSubmit.familyZip = familyZipInput.value.trim();
+        }
+
         console.log("Attempting to CREATE (set) document:", collectionPath + '/' + finalDocId);
+        console.log("Payload includes familyZip:", dataToSubmit.familyZip, "| keys:", Object.keys(dataToSubmit).sort().join(", "));
         // Use set() for all collections with the generated unique ID.
         // This is a 'create' operation if the document doesn't exist, or 'overwrite' if it did (unlikely with timestamp).
         await db.collection(collectionPath).doc(finalDocId).set(dataToSubmit);

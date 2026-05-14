@@ -50,6 +50,12 @@ exports.onNewApplication = onDocumentCreated(
       const applicantEmail = applicationData.email;
 
       console.log(`New application by ${applicantName} in ${collectionId}`);
+      console.log(
+          "familyZip on created document:",
+          applicationData.familyZip !== undefined && applicationData.familyZip !== null
+            ? applicationData.familyZip
+            : "(field missing from write)",
+      );
 
       // Construct the Mailjet request
       const request = mailjet.post("send", {version: "v3.1"}).request({
