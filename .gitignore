@@ -1,0 +1,22 @@
+# Dependencies
+node_modules/
+.firebase/
+__pycache__/
+venv/
+.env
+
+# Firebase
+.firebaserc
+firebase-debug.log
+
+# Python
+*.pyc
+*.pyo
+*.pyd
+.Python
+*.py[cod]
+*$py.class
+
+# System files
+.DS_Store
+Thumbs.db

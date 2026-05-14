@@ -1,0 +1,612 @@
+/* CBTF Mentoring System - Main Styles */
+
+/* Global Styles */
+:root {
+  --primary-color: #0066cc;
+  --secondary-color: #f8f9fa;
+  --success-color: #28a745;
+  --danger-color: #dc3545;
+  --warning-color: #ffc107;
+  --info-color: #17a2b8;
+  --light-color: #f8f9fa;
+  --dark-color: #343a40;
+}
+
+body {
+  font-family: 'Roboto', 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  line-height: 1.6;
+  color: #333;
+  background-color: #fff;
+}
+
+/* Navigation Styles */
+.navbar-brand {
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.navbar-nav .nav-link {
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+
+.navbar-nav .nav-link:hover {
+  color: #ffffff !important;
+}
+
+/* Header Styles */
+header.bg-primary {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #004499 100%) !important;
+  padding: 4rem 0;
+}
+
+/* FIXED: Logo Styles - Smaller size and proper centering */
+.cbtflogo {
+  width: 150px;
+  height: 60px;
+  margin: 0 auto 1.5rem auto;
+  display: block;
+  /* Use the correct path where the logo actually is */
+  background-image: url('img/cbtf-logo.png');
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: contain;
+  /* Fallback if image doesn't load */
+  border: 1px dashed rgba(255,255,255,0.3);
+  position: relative;
+  border-radius: 4px;
+}
+
+/* Show "CBTF" text if image fails to load */
+.cbtflogo::after {
+  content: 'CBTF';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 18px;
+  font-weight: bold;
+  color: white;
+  text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+  z-index: 1;
+}
+
+/* Update the logo container to accommodate the bigger logo */
+.logo-container {
+  margin: 2rem auto 3rem auto; /* Added top margin to push entire container down */
+  padding-top: 2rem; /* Additional padding to push content down */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+  max-width: 500px; /* Increased to accommodate larger logo */
+}
+
+/* FIXED: Main Logo Image - Bigger and properly contained */
+.cbtf-logo-img {
+  max-width: 450px;  /* Much bigger - 3x original size */
+  max-height: 180px; /* Much bigger - 3x original size */
+  width: auto;
+  height: auto;
+  margin: 3rem auto 3rem auto; /* Added top margin to push down, increased bottom margin */
+  display: block;
+  /* Add a subtle drop shadow for better visibility on colored background */
+  filter: drop-shadow(0 3px 6px rgba(0,0,0,0.4));
+  /* Ensure the image is crisp */
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+  /* Prevent image from overflowing */
+  object-fit: contain;
+}
+
+/* FIXED: Fallback styling when image doesn't load - Smaller */
+.logo-fallback {
+  text-align: center;
+  padding: 15px;
+  border: 2px dashed rgba(255,255,255,0.5);
+  border-radius: 8px;
+  margin: 0 auto 1rem auto;
+  background: rgba(255,255,255,0.1);
+  max-width: 200px;
+}
+
+.logo-fallback h2 {
+  margin: 0;
+  font-size: 1.8rem;
+  letter-spacing: 2px;
+  color: white;
+}
+
+.logo-fallback p {
+  margin: 0.5rem 0 0 0;
+  font-style: italic;
+  font-size: 0.8rem;
+  color: rgba(255,255,255,0.9);
+}
+
+/* Form Styles */
+.form-section {
+  background: #f8f9fa;
+  border-radius: 12px;
+  padding: 2rem;
+  margin-bottom: 2rem;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+  transition: box-shadow 0.3s ease;
+}
+
+.form-section:hover {
+  box-shadow: 0 4px 20px rgba(0,0,0,0.15);
+}
+
+.form-section h3 {
+  color: var(--primary-color);
+  border-bottom: 2px solid var(--primary-color);
+  padding-bottom: 0.5rem;
+  margin-bottom: 1.5rem;
+  font-weight: 600;
+}
+
+.form-section h5 {
+  color: #333;
+  margin-top: 1.5rem;
+  margin-bottom: 1rem;
+  font-weight: 600;
+}
+
+/* Form Input Styles */
+.form-group {
+  margin-bottom: 1.5rem;
+}
+
+.form-group label {
+  display: block;
+  margin-bottom: 0.5rem;
+  font-weight: 500;
+  color: #333;
+}
+
+.form-group input[type="text"],
+.form-group input[type="email"],
+.form-group input[type="tel"] {
+  width: 100%;
+  padding: 0.75rem;
+  margin-bottom: 0.5rem;
+  border: 2px solid #ced4da;
+  border-radius: 6px;
+  font-size: 1rem;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+.form-group input[type="text"]:focus,
+.form-group input[type="email"]:focus,
+.form-group input[type="tel"]:focus {
+  outline: none;
+  border-color: var(--primary-color);
+  box-shadow: 0 0 0 0.2rem rgba(0, 102, 204, 0.25);
+}
+
+/* Radio and Checkbox Groups */
+.radio-group,
+.checkbox-group {
+  display: flex;
+  flex-direction: column;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.radio-group label,
+.checkbox-group label {
+  display: flex;
+  align-items: center;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+  font-weight: normal;
+  position: relative;
+  border: 1px solid transparent;
+}
+
+.radio-group label:hover,
+.checkbox-group label:hover {
+  background-color: rgba(0, 102, 204, 0.1);
+}
+
+.radio-group input[type="radio"],
+.checkbox-group input[type="checkbox"] {
+  margin-right: 0.75rem;
+  transform: scale(1.2);
+}
+
+/* Parent/Caregiver Extra Section */
+#Parent\/Caregiver-Extra {
+  margin-top: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #e3f2fd 0%, #bbdefb 100%);
+  border-radius: 8px;
+  border-left: 4px solid #2196f3;
+  animation: slideIn 0.5s ease-out;
+}
+
+@keyframes slideIn {
+  from {
+      opacity: 0;
+      transform: translateY(-20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Submit Button */
+.submit-container {
+  text-align: center;
+  margin-top: 3rem;
+  padding: 2rem;
+}
+
+.submit-btn {
+  background: linear-gradient(135deg, var(--primary-color) 0%, #004499 100%);
+  color: white;
+  padding: 15px 40px;
+  border: none;
+  border-radius: 8px;
+  font-size: 1.2rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 102, 204, 0.3);
+}
+
+.submit-btn:hover {
+  background: linear-gradient(135deg, #004499 0%, var(--primary-color) 100%);
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 102, 204, 0.4);
+}
+
+.submit-btn:disabled {
+  background: #6c757d;
+  cursor: not-allowed;
+  transform: none;
+  box-shadow: none;
+}
+
+/* FIXED: Form Validation Styles - Exclude radio buttons and checkboxes */
+input[type="text"].is-valid,
+input[type="email"].is-valid,
+input[type="tel"].is-valid,
+input[type="password"].is-valid,
+input[type="number"].is-valid,
+select.is-valid,
+textarea.is-valid {
+  border-color: var(--success-color) !important;
+  box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25) !important;
+}
+
+input[type="text"].is-invalid,
+input[type="email"].is-invalid,
+input[type="tel"].is-invalid,
+input[type="password"].is-invalid,
+input[type="number"].is-invalid,
+select.is-invalid,
+textarea.is-invalid {
+  border-color: var(--danger-color) !important;
+  box-shadow: 0 0 0 0.2rem rgba(220, 53, 69, 0.25) !important;
+}
+
+/* Radio buttons and checkboxes should NOT get the .is-valid/.is-invalid styling */
+input[type="radio"].is-valid,
+input[type="radio"].is-invalid,
+input[type="checkbox"].is-valid,
+input[type="checkbox"].is-invalid {
+  border: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+.field-error {
+  color: var(--danger-color);
+  font-size: 0.875rem;
+  margin-top: 0.25rem;
+  display: block;
+}
+
+.required-indicator {
+  color: var(--danger-color);
+  font-weight: bold;
+}
+
+/* Progress Bar Styles */
+.form-progress-container {
+  background: rgba(255, 255, 255, 0.95);
+  backdrop-filter: blur(10px);
+  box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+}
+
+.form-progress-bar {
+  background-color: #e9ecef;
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+.form-progress-fill {
+  background: linear-gradient(90deg, var(--primary-color), #004499);
+  transition: width 0.5s ease;
+}
+
+/* Section Completion Indicators */
+.section-completion-indicator {
+  transition: all 0.3s ease;
+}
+
+/* Contact Section */
+.contact-info {
+  background: var(--secondary-color);
+  border-radius: 8px;
+  padding: 2rem;
+}
+
+.contact-info h4 {
+  color: var(--primary-color);
+  margin-bottom: 1rem;
+}
+
+/* Utility Classes */
+.margin-expand-top {
+  margin-top: 1.5rem;
+}
+
+.text-decoration-underline {
+  text-decoration: underline;
+}
+
+.spaceabove {
+  margin-top: 2rem;
+}
+
+/* FIXED: Responsive Design - Better mobile logo sizing */
+@media (max-width: 768px) {
+  .form-section {
+      padding: 1.5rem 1rem;
+      margin-bottom: 1.5rem;
+  }
+  
+  .radio-group,
+  .checkbox-group {
+      gap: 0.5rem;
+  }
+  
+  .submit-btn {
+      padding: 12px 30px;
+      font-size: 1.1rem;
+  }
+  
+  header.bg-primary {
+      padding: 2rem 0;
+  }
+  
+  /* Smaller logos on tablets */
+  .cbtf-logo-img {
+    max-width: 350px;  /* Slightly smaller on tablets */
+    max-height: 140px;
+    margin: 2rem auto 2.5rem auto; /* Slightly less margin on tablets */
+  }
+  
+  .logo-container {
+      max-width: 400px;
+      padding-top: 1.5rem;
+  }
+  
+  .logo-fallback {
+      max-width: 180px;
+      padding: 12px;
+  }
+  
+  .logo-fallback h2 {
+      font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 576px) {
+  .form-section {
+      padding: 1rem;
+  }
+  
+  .form-group input[type="text"],
+  .form-group input[type="email"],
+  .form-group input[type="tel"] {
+      padding: 0.5rem;
+  }
+  
+  .submit-btn {
+      width: 100%;
+      padding: 12px 20px;
+  }
+  
+  .cbtf-logo-img {
+    max-width: 280px;  
+    max-height: 112px;
+    margin: 1.5rem auto 2rem auto; /* Less margin on mobile */
+  }
+  
+  .logo-container {
+      max-width: 320px;
+      padding-top: 1rem;
+  }
+  
+  .logo-fallback {
+      max-width: 150px;
+      padding: 10px;
+  }
+  
+  .logo-fallback h2 {
+      font-size: 1.2rem;
+  }
+  
+  .logo-fallback p {
+      font-size: 0.7rem;
+  }
+}
+
+/* Animation Classes */
+.fade-in {
+  animation: fadeIn 0.6s ease-out;
+}
+
+@keyframes fadeIn {
+  from {
+      opacity: 0;
+      transform: translateY(20px);
+  }
+  to {
+      opacity: 1;
+      transform: translateY(0);
+  }
+}
+
+/* Loading Animation */
+.loading {
+  opacity: 0.6;
+  pointer-events: none;
+}
+
+.loading::after {
+  content: '';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 20px;
+  height: 20px;
+  margin: -10px 0 0 -10px;
+  border: 2px solid #f3f3f3;
+  border-top: 2px solid var(--primary-color);
+  border-radius: 50%;
+  animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+  0% { transform: rotate(0deg); }
+  100% { transform: rotate(360deg); }
+}
+
+/* Accessibility Improvements */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+      animation-duration: 0.01ms !important;
+      animation-iteration-count: 1 !important;
+      transition-duration: 0.01ms !important;
+      scroll-behavior: auto !important;
+  }
+}
+
+/* Focus styles for better accessibility */
+button:focus,
+input:focus,
+select:focus,
+textarea:focus {
+  outline: 2px solid var(--primary-color);
+  outline-offset: 2px;
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+  .form-section {
+      border: 2px solid #000;
+  }
+  
+  .submit-btn {
+      border: 2px solid #000;
+  }
+}
+
+/* Override any validation styling on radio buttons and their labels */
+input[type="radio"],
+input[type="radio"]:focus,
+input[type="radio"]:checked,
+input[type="radio"].is-valid,
+input[type="radio"].is-invalid {
+    border: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+}
+
+/* Ensure radio button labels don't get stuck with validation styling */
+.radio-group label,
+.radio-group label:focus,
+.radio-group label.field-valid,
+
+/* Only show hover effect, no validation styling */
+.radio-group label:hover {
+    background-color: rgba(0, 102, 204, 0.1);
+    border-color: transparent !important;
+}
+
+/* Remove any focus outlines on radio labels */
+.radio-group label:focus-within {
+    outline: none;
+    border-color: transparent;
+}
+
+/* Ensure no validation styling appears on radio containers */
+.radio-group.is-valid,
+.radio-group.is-invalid {
+    border: none !important;
+    background: none !important;
+}
+
+/* Override any existing radio styling */
+.radio-group label,
+.radio-group label.field-valid,
+.radio-group label.field-invalid,
+.radio-group label.is-valid,
+.radio-group label.is-invalid {
+  border: 1px solid transparent !important;
+  background-color: transparent !important;
+  box-shadow: none !important;
+  padding: 0.5rem;
+  border-radius: 6px;
+  transition: background-color 0.3s ease;
+  cursor: pointer;
+}
+
+/* Only keep the hover effect (light blue, not green) */
+.radio-group label:hover {
+  background-color: rgba(0, 102, 204, 0.1) !important;
+  border-color: transparent !important;
+}
+
+/* Remove any styling for selected radio buttons */
+.radio-group label:has(input[type="radio"]:checked) {
+  background-color: transparent !important;
+  border-color: transparent !important;
+}
+
+/* Ensure radio inputs themselves have no styling */
+input[type="radio"],
+input[type="radio"]:checked,
+input[type="radio"]:focus,
+input[type="radio"].is-valid,
+input[type="radio"].is-invalid {
+  border: none !important;
+  outline: none !important;
+  box-shadow: none !important;
+  background: none !important;
+}
+
+/* Remove any green color that might appear */
+.radio-group * {
+  --success-color: transparent !important;
+}
+
+/* Make sure no parent containers add green styling */
+.form-group:has(input[type="radio"]),
+.radio-group {
+  border: none !important;
+  background: none !important;
+  box-shadow: none !important;
+}

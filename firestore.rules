@@ -1,0 +1,55 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+
+    // Helper function to check if the update operation is only writing allowed fields for match results.
+    // This is for when your app.js updates a seeker's document.
+    function isUpdatingOnlyAllowedMatchFields() {
+      let allowedFieldsForMatchUpdate = [
+        'matches',
+        'totalPotentialMatches',
+        'matchingCompleted',
+        'matchingTimestamp',
+        'matchingError'
+      ];
+      return request.writeFields.size() > 0 &&
+             request.writeFields.hasOnly(allowedFieldsForMatchUpdate);
+    }
+
+    // Mentor Collections: Users submit forms to BECOME mentors.
+    // These need to be readable by app.js for matching.
+    match /Mentor-Caregiver/{docId} {
+      allow create: if true;  // Anyone can submit the form to become a mentor
+      allow read: if true;    // app.js needs to read these for matching
+      allow update: if false; // No client-side updates (Admins use Console)
+      allow delete: if false; // No client-side deletes (Admins use Console)
+    }
+    match /Mentor-Survivor/{docId} {
+      allow create: if true;
+      allow read: if true;    // app.js needs to read these for matching
+      allow update: if false;
+      allow delete: if false;
+    }
+
+    // Seeking Mentor Collections: Users submit forms to FIND a mentor.
+    // This data is more sensitive and should NOT be generally readable by clients.
+    match /SeekingMentor-Caregiver/{docId} {
+      allow create: if true;  // Anyone can submit the form to seek a mentor
+      allow read: if false;   // CORRECTED: Clients (app.js) CANNOT list or read these documents.
+      allow update: if isUpdatingOnlyAllowedMatchFields(); // app.js can update with match results
+      allow delete: if false; // No client-side deletes (Admins use Console)
+    }
+    match /SeekingMentor-Survivor/{docId} {
+      allow create: if true;
+      allow read: if false;   // CORRECTED: Clients (app.js) CANNOT list or read these documents.
+      allow update: if isUpdatingOnlyAllowedMatchFields();
+      allow delete: if false;
+    }
+
+    // Fallback: Deny access to any other collections/paths not explicitly matched above.
+    // This is a security best practice.
+    match /{document=**} {
+      allow read, write: if false;
+    }
+  }
+}

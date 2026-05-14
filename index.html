@@ -1,0 +1,1027 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+    <meta name="description" content="CBTF Mentoring Matching System - Connect brain tumor survivors and families with experienced mentors" />
+    <meta name="author" content="Children's Brain Tumor Foundation" />
+    <title>CBTF Mentor Application</title>
+    <link rel="icon" type="image/x-icon" href="assets/favicon.ico" />
+    
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Core theme CSS -->
+    <link href="static/css/style.css" rel="stylesheet" />
+    
+    <!-- Custom form styles -->
+    <style>
+        .form-section {
+            margin-bottom: 2rem;
+            padding: 1.5rem;
+            border-radius: 8px;
+            background-color: #f8f9fa;
+        }
+        
+        .form-section h3 {
+            color: #0066cc;
+            border-bottom: 2px solid #0066cc;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .form-section h5 {
+            color: #333;
+            margin-top: 1.5rem;
+            margin-bottom: 1rem;
+            font-weight: 600;
+        }
+        
+        .form-group {
+            margin-bottom: 1rem;
+        }
+        
+        .form-group label {
+            display: block;
+            margin-bottom: 0.5rem;
+            font-weight: 500;
+        }
+        
+        .form-group input[type="text"],
+        .form-group input[type="email"],
+        .form-group input[type="tel"],
+        .form-group textarea { /* Added textarea for consistent styling */
+            width: 100%;
+            padding: 0.5rem;
+            margin-bottom: 0.5rem;
+            border: 1px solid #ced4da;
+            border-radius: 4px;
+        }
+        
+        .radio-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .radio-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+        
+        .radio-group input[type="radio"] {
+            margin-right: 0.5rem;
+        }
+        
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+        
+        .checkbox-group label {
+            display: flex;
+            align-items: center;
+            margin-bottom: 0.5rem;
+            font-weight: normal;
+        }
+        
+        .checkbox-group input[type="checkbox"] {
+            margin-right: 0.5rem;
+        }
+        
+        .submit-container {
+            text-align: center;
+            margin-top: 3rem;
+            padding: 2rem;
+        }
+        
+        .submit-btn {
+            background-color: #0066cc;
+            color: white;
+            padding: 12px 30px;
+            border: none;
+            border-radius: 6px;
+            font-size: 1.1rem;
+            font-weight: 600;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
+        
+        .submit-btn:hover {
+            background-color: #0052a3;
+        }
+        
+        .submit-btn:disabled {
+            background-color: #6c757d;
+            cursor: not-allowed;
+        }
+        
+        #Parent\/Caregiver-Extra {
+            margin-top: 1rem;
+            padding: 1rem;
+            background-color: #e3f2fd;
+            border-radius: 6px;
+            border-left: 4px solid #2196f3;
+        }
+        
+        .required-indicator {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .margin-expand-top {
+            margin-top: 1.5rem;
+        }
+        
+        .text-decoration-underline {
+            text-decoration: underline;
+        }
+        
+        .cbtflogo {
+            height: 80px;
+            background: url('assets/cbtf-logo.png') center/contain no-repeat;
+            margin-bottom: 1rem;
+        }
+        
+        @media (max-width: 768px) {
+            .radio-group, .checkbox-group {
+                gap: 0.3rem;
+            }
+            
+            .form-section {
+                padding: 1rem;
+            }
+        }
+
+        /* Add this inside the <style> tag in your <head> */
+.feature-icon {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 4rem;
+    height: 4rem;
+    margin-bottom: 1rem;
+    font-size: 2rem;
+    color: #fff;
+    background-color: #0d6efd; /* Bootstrap primary blue */
+    border-radius: 50%;
+}
+    </style>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" />
+</head>
+
+<body id="page-top">
+    <!-- Navigation-->
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top" id="mainNav">
+        <div class="container px-4">
+            <a class="navbar-brand" href="#page-top">CBTF Mentoring</a>
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarResponsive"
+                aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ms-auto">
+                    <li class="nav-item"><a class="nav-link" href="#about">Form</a></li>
+                    <li class="nav-item"><a class="nav-link" href="#services">Contact</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+    
+    <!-- Header-->
+<header class="bg-primary bg-gradient text-white py-5">
+    <div class="container px-4">
+        
+        <!-- Logo can remain here or be moved -->
+        <div class="text-center mb-5">
+            <img src="img/cbtf-logo.png" 
+                 alt="CBTF Logo" 
+                 class="cbtf-logo-img"
+                 style="background: white; padding: 10px; border-radius: 8px;"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='block';">
+            <!-- Fallback text if image fails to load -->
+            <div class="logo-fallback" style="display: none;">
+                <h2 style="color: #2c3e50; margin: 20px 0;">CBTF</h2>
+                <p style="color: #666; font-size: 0.9rem;">Children's Brain Tumor Foundation</p>
+            </div>
+        </div>
+
+        <div class="text-center">
+             <h1 class="fw-bolder">CBTF Mentoring Matching System</h1>
+             <p class="lead mb-5">
+                Find strength and support by connecting with someone who truly understands. This application is the first step in matching brain tumor survivors and their families with trained mentors who have walked a similar path.
+             </p>
+        </div>
+
+        <!-- How It Works Section with Cards/Icons -->
+        <div class="row gx-5 text-center">
+            
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature-icon bg-light text-primary mb-3"><i class="fas fa-file-alt"></i></div>
+                <h5 class="fw-bolder">1. Complete the Application</h5>
+                <p class="mb-0">Fill out the confidential form below. The more details you share, the better we can find a relevant match.</p>
+            </div>
+            
+            <div class="col-lg-4 mb-5 mb-lg-0">
+                <div class="feature-icon bg-light text-primary mb-3"><i class="fas fa-users"></i></div>
+                <h5 class="fw-bolder">2. Find Your Match</h5>
+                <p class="mb-0">Our system identifies potential matches based on common ground and shared experiences.</p>
+            </div>
+            
+            <div class="col-lg-4">
+                <div class="feature-icon bg-light text-primary mb-3"><i class="fas fa-handshake-angle"></i></div>
+                <h5 class="fw-bolder">3. Get Connected</h5>
+                <p class="mb-0">A CBTF team member will personally review your top matches and reach out to facilitate an introduction.</p>
+            </div>
+
+        </div>
+
+        <div class="text-center mt-5">
+            <a class="btn btn-lg btn-light" href="#about">Begin Application</a>
+        </div>
+    </div>
+</header>
+
+    <!-- Main Form Section -->
+    <section id="about">
+        <div class="container px-4">
+            <div class="row gx-4 justify-content-center">
+                <div class="col-lg-10">
+                    <h1 class="text-center mb-4">Mentor Matching Application</h1>
+                    
+                    <!-- Form starts here -->
+                    <form id="Mentor-form">
+                        
+                        <!-- Contact Information -->
+                        <div class="form-section">
+                            <h3>Contact Information</h3>
+                            
+                            <div class="form-group">
+                                <label for="first-name">First Name <span class="required-indicator">*</span></label>
+                                <input type="text" id="first-name" name="first-name" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="last-name">Last Name <span class="required-indicator">*</span></label>
+                                <input type="text" id="last-name" name="last-name1" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="email">Email Address <span class="required-indicator">*</span></label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="number">Phone Number <span class="required-indicator">*</span></label>
+                                <input type="tel" id="number" name="number" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label for="family-zip">ZIP code where your family is located <span class="required-indicator">*</span></label>
+                                <input type="text" id="family-zip" name="family-zip" inputmode="numeric" autocomplete="postal-code" maxlength="10" placeholder="e.g. 12345 or 12345-6789" required>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Time Zone <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input type="radio" id="tz-eastern" name="timezone" value="Eastern" required>
+                                        Eastern Time (ET)
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="tz-central" name="timezone" value="Central">
+                                        Central Time (CT)
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="tz-mountain" name="timezone" value="Mountain">
+                                        Mountain Time (MT)
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="tz-pacific" name="timezone" value="Pacific">
+                                        Pacific Time (PT)
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="tz-alaska" name="timezone" value="Alaska">
+                                        Alaska Time (AKT)
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="tz-hawaii" name="timezone" value="Hawaii">
+                                        Hawaii-Aleutian Time (HAT)
+                                    </label>
+                                    
+                                    <div style="display: flex; align-items: center; gap: 0.5rem;">
+                                        <label style="margin-bottom: 0; flex-shrink: 0;">
+                                            <input type="radio" id="tz-other" name="timezone" value="Other">
+                                            Other:
+                                        </label>
+                                        <input type="text" id="other-timezone-text" name="other_timezone" aria-label="Specify other time zone" style="width: 100%; margin-bottom: 0;">
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Role Selection -->
+                        <div class="form-section">
+                                <h3>I am...</h3>
+                                <div class="radio-group">
+                                    <label>
+                                        <input name="I-am" id="Par/Car-1" type="radio" value="Seeking a mentor for a Parent/Caregiver" required>
+                                        Seeking a mentor for a Parent/Caregiver
+                                    </label>
+                                    <label>
+                                        <input name="I-am" id="Surv-1" type="radio" value="Seeking a mentor for a Brain Tumor Survivor" required>
+                                        Seeking a mentor for a Brain Cancer Survivor
+                                    </label>
+                                    <label>
+                                        <input name="I-am" id="Par/Car-2" type="radio" value="A Parent/Caregiver seeking to become a mentor for a Parent/Caregiver" required>
+                                        A Parent/Caregiver seeking to become a mentor for a Parent/Caregiver
+                                    </label>
+                                    <label>
+                                        <input name="I-am" id="Surv-2" type="radio" value="A Brain Tumor Survivor seeking to become a mentor for a Brain Tumor Survivor" required>
+                                        A Brain Cancer Survivor seeking to become a mentor for a Brain Cancer Survivor
+                                    </label>
+                                </div>
+                        </div>
+                        
+                        <!-- START: RESTRUCTURED Conditional Questions -->
+                        <div id="mentee-reason-section" class="form-section" style="display: none;">
+                            <div class="form-group">
+                                <label for="mentee-reason">Why are you looking to be matched with a mentor? <span class="required-indicator">*</span></label>
+                                <textarea id="mentee-reason" name="mentee_reason" rows="4" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <div id="mentor-reason-section" class="form-section" style="display: none;">
+                            <div class="form-group">
+                                <label for="mentor-reason">Why would you like to be a mentor? <span class="required-indicator">*</span></label>
+                                <textarea id="mentor-reason" name="mentor_reason" rows="4" class="form-control"></textarea>
+                            </div>
+                        </div>
+
+                        <!-- This is the new, common section for all applicants -->
+                        <div id="common-experience-section" class="form-section" style="display: none;">
+                             <!-- Question 1: Had a mentor before -->
+                             <div class="form-group">
+                                <label>Have you had a (CBTF or any) mentor before? <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input type="radio" id="had_mentor_yes" name="had_mentor_before" value="Yes">
+                                        Yes
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="had_mentor_no" name="had_mentor_before" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        
+                            <!-- Question 2: Been a mentor before -->
+                            <div class="form-group">
+                                <label>Have you been a mentor before? <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input type="radio" id="been_mentor_yes" name="been_a_mentor_before" value="Yes">
+                                        Yes
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="been_mentor_no" name="been_a_mentor_before" value="No">
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- END: RESTRUCTURED Conditional Questions -->
+
+                        <!-- Parent/Caregiver Additional Information -->
+                        <div id="Parent/Caregiver-Extra" style="display: none;">
+                            <h5>Parent/Caregiver Information</h5>
+                            
+                            <div class="form-group">
+                                <label>Parent/Caregiver Gender:</label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input name="Par/Car-Gender" id="Par/Car-Gender1" type="radio" value="Male">
+                                        Male
+                                    </label>
+                                    <label>
+                                        <input name="Par/Car-Gender" id="Par/Car-Gender2" type="radio" value="Female">
+                                        Female
+                                    </label>
+                                    <label>
+                                        <input name="Par/Car-Gender" id="Par/Car-Gender3" type="radio" value="Nonbinary">
+                                        Nonbinary
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <div class="form-group">
+                                <label>Parent/Caregiver Age:</label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input name="Par/Car-Age" id="Par/Car-Age1" type="radio" value="<=20">
+                                        20 and younger
+                                    </label>
+                                    <label>
+                                        <input name="Par/Car-Age" id="Par/Car-Age2" type="radio" value="21-25">
+                                        21-25
+                                    </label>
+                                    <label>
+                                        <input name="Par/Car-Age" id="Par/Car-Age3" type="radio" value="26-30">
+                                        26-30
+                                    </label>
+                                    <label>
+                                        <input name="Par/Car-Age" id="Par/Car-Age4" type="radio" value="31-35">
+                                        31-35
+                                    </label>
+                                    <label>
+                                        <input name="Par/Car-Age" id="Par/Car-Age5" type="radio" value="36-40">
+                                        36-40
+                                    </label>
+                                    <label>
+                                        <input name="Par/Car-Age" id="Par/Car-Age6" type="radio" value="41-45">
+                                        41-45
+                                    </label>
+                                    <label>
+                                        <input name="Par/Car-Age" id="Par/Car-Age7" type="radio" value="46-50">
+                                        46-50
+                                    </label>
+                                    <label>
+                                        <input name="Par/Car-Age" id="Par/Car-Age8" type="radio" value="51+">
+                                        51 and older
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Brain Tumor Survivor Information -->
+                        <div class="form-section">
+                            <h3>Brain Cancer Survivor Information</h3>
+                            
+                            <div class="form-group">
+                                <label>Gender <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input name="gender" type="radio" id="gender-male" value="Male" required>
+                                        Male
+                                    </label>
+                                    <label>
+                                        <input name="gender" type="radio" id="gender-female" value="Female" required>
+                                        Female
+                                    </label>
+                                    <label>
+                                        <input name="gender" type="radio" id="gender-nonbinary" value="Nonbinary" required>
+                                        Nonbinary
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Current Age <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input name="age" type="radio" id="age-0-5" value="0-5" required>
+                                        0-5
+                                    </label>
+                                    <label>
+                                        <input name="age" type="radio" id="age-6-12" value="6-12" required>
+                                        6-12
+                                    </label>
+                                    <label>
+                                        <input name="age" type="radio" id="age-13-15" value="13-15" required>
+                                        13-15
+                                    </label>
+                                    <label>
+                                        <input name="age" type="radio" id="age-older" value=">15" required>
+                                        Older than 15
+                                    </label>
+                                </div>
+                            </div>
+                            
+                            <!-- ... Rest of your form ... -->
+                            
+                            <div class="form-group">
+                                <label>Current Grade Level <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input type="radio" id="grade-1" name="grade-level" value="Pre-school/has not started" required>
+                                        Pre-school/has not started
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="grade-2" name="grade-level" value="Elementary school (1-6)" required>
+                                        Elementary school (1-6)
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="grade-3" name="grade-level" value="Middle school (7-8)" required>
+                                        Middle school (7-8)
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="grade-4" name="grade-level" value="High school (9-12)" required>
+                                        High school (9-12)
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="grade-5" name="grade-level" value="Completed high school or GED" required>
+                                        Completed high school or GED
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="grade-6" name="grade-level" value="Community college" required>
+                                        Community college
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="grade-7" name="grade-level" value="Trade school" required>
+                                        Trade school
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="grade-8" name="grade-level" value="Four year school" required>
+                                        Four year school
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="grade-9" name="grade-level" value="Graduate school" required>
+                                        Graduate school
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="grade-10" name="grade-level" value="No longer in school" required>
+                                        No longer in school
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>School Performance (check all that apply):</label>
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input type="checkbox" id="sp-1" name="School-performance" value="504/IEP plan">
+                                        504/IEP plan
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="sp-2" name="School-performance" value="Social/peer problems">
+                                        Social/peer problems
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="sp-3" name="School-performance" value="Behavior challenges">
+                                        Behavior challenges
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Ethnicity <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input name="ethnicity" id="american-indian" type="radio" value="American Indian or Alaska Native" required>
+                                        American Indian or Alaska Native
+                                    </label>
+                                    <label>
+                                        <input name="ethnicity" id="asian" type="radio" value="Asian" required>
+                                        Asian
+                                    </label>
+                                    <label>
+                                        <input name="ethnicity" id="black" type="radio" value="Black/African American" required>
+                                        Black/African American
+                                    </label>
+                                    <label>
+                                        <input name="ethnicity" id="native" type="radio" value="Native American or other Pacific Islander" required>
+                                        Native American or other Pacific Islander
+                                    </label>
+                                    <label>
+                                        <input name="ethnicity" id="latino" type="radio" value="Latino/Hispanic" required>
+                                        Latino/Hispanic
+                                    </label>
+                                    <label>
+                                        <input name="ethnicity" id="middle-eastern" type="radio" value="Middle Eastern/Arab" required>
+                                        Middle Eastern/Arab
+                                    </label>
+                                    <label>
+                                        <input name="ethnicity" id="multi" type="radio" value="Multi-racial" required>
+                                        Multi-racial
+                                    </label>
+                                    <label>
+                                        <input name="ethnicity" id="south-asian" type="radio" value="South Asian/Indian" required>
+                                        South Asian/Indian
+                                    </label>
+                                    <label>
+                                        <input name="ethnicity" id="white" type="radio" value="White" required>
+                                        White
+                                    </label>
+                                    <label>
+                                        <input name="ethnicity" id="other" type="radio" value="Other" required>
+                                        Other
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Household Income <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input name="income" id="o1" type="radio" value="Under $30,000" required>
+                                        Under $30,000
+                                    </label>
+                                    <label>
+                                        <input name="income" id="o2" type="radio" value="$30,001-$58,020" required>
+                                        $30,001-$58,020
+                                    </label>
+                                    <label>
+                                        <input name="income" id="o3" type="radio" value="$58,021-$94,000" required>
+                                        $58,021-$94,000
+                                    </label>
+                                    <label>
+                                        <input name="income" id="o4" type="radio" value="$94,001-$153,000" required>
+                                        $94,001-$153,000
+                                    </label>
+                                    <label>
+                                        <input name="income" id="o5" type="radio" value="Over $153,000" required>
+                                        Over $153,000
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Number of Older Siblings <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input name="older-siblings" id="older-0" type="radio" value="0" required>
+                                        0
+                                    </label>
+                                    <label>
+                                        <input name="older-siblings" id="older-1" type="radio" value="1" required>
+                                        1
+                                    </label>
+                                    <label>
+                                        <input name="older-siblings" id="older-2" type="radio" value="2" required>
+                                        2
+                                    </label>
+                                    <label>
+                                        <input name="older-siblings" id="older-3" type="radio" value="3" required>
+                                        3
+                                    </label>
+                                    <label>
+                                        <input name="older-siblings" id="older-4" type="radio" value="4" required>
+                                        4
+                                    </label>
+                                    <label>
+                                        <input name="older-siblings" id="older-more-than-4" type="radio" value=">4" required>
+                                        More than 4
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Number of Younger Siblings <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input name="younger-siblings" id="younger-0" type="radio" value="0" required>
+                                        0
+                                    </label>
+                                    <label>
+                                        <input name="younger-siblings" id="younger-1" type="radio" value="1" required>
+                                        1
+                                    </label>
+                                    <label>
+                                        <input name="younger-siblings" id="younger-2" type="radio" value="2" required>
+                                        2
+                                    </label>
+                                    <label>
+                                        <input name="younger-siblings" id="younger-3" type="radio" value="3" required>
+                                        3
+                                    </label>
+                                    <label>
+                                        <input name="younger-siblings" id="younger-4" type="radio" value="4" required>
+                                        4
+                                    </label>
+                                    <label>
+                                        <input name="younger-siblings" id="younger-more-than-4" type="radio" value=">4" required>
+                                        More than 4
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Twin <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input name="twin" id="twin-yes" type="radio" value="Yes" required>
+                                        Yes
+                                    </label>
+                                    <label>
+                                        <input name="twin" id="twin-no" type="radio" value="No" required>
+                                        No
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Diagnosis Information -->
+                        <div class="form-section">
+                            <h3>Diagnosis Information</h3>
+                            
+                            <div class="form-group">
+                                <label>Diagnosis <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input type="radio" id="diagnosis-1" name="diagnosis" value="Medulloblastoma" required>
+                                        Medulloblastoma
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-2" name="diagnosis" value="PNET" required>
+                                        PNET
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-3" name="diagnosis" value="Gliomas(JPA, Ganglioglioma, High grade Glioma)" required>
+                                        Gliomas (JPA, Ganglioglioma, High grade Glioma)
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-4" name="diagnosis" value="DIPG/DMG" required>
+                                        DIPG/DMG
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-5" name="diagnosis" value="Ependymoma" required>
+                                        Ependymoma
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-6" name="diagnosis" value="Germ Cell Tumor" required>
+                                        Germ Cell Tumor
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-7" name="diagnosis" value="Spinal Cord Tumor" required>
+                                        Spinal Cord Tumor
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-8" name="diagnosis" value="Choroid Plexus Tumors" required>
+                                        Choroid Plexus Tumors
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-9" name="diagnosis" value="Craniopharyngioma" required>
+                                        Craniopharyngioma
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-10" name="diagnosis" value="ATRT" required>
+                                        ATRT
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-11" name="diagnosis" value="Oligodendroglioma" required>
+                                        Oligodendroglioma
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-12" name="diagnosis" value="Optic Pathway Tumor" required>
+                                        Optic Pathway Tumor
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-13" name="diagnosis" value="Other" required>
+                                        Other
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Age at Diagnosis <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input type="radio" id="diagnosis-age-1" name="diagnosis-age" value="0-5" required>
+                                        0-5
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-age-2" name="diagnosis-age" value="6-12" required>
+                                        6-12
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-age-3" name="diagnosis-age" value="13-15" required>
+                                        13-15
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="diagnosis-age-4" name="diagnosis-age" value=">15" required>
+                                        Older than 15
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Time between Symptoms and Diagnosis <span class="required-indicator">*</span></label>
+                                <div class="radio-group">
+                                    <label>
+                                        <input type="radio" id="time-1" name="time" value="0-6 months" required>
+                                        0-6 months
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="time-2" name="time" value="6-12 months" required>
+                                        6-12 months
+                                    </label>
+                                    <label>
+                                        <input type="radio" id="time-3" name="time" value="More than one year" required>
+                                        More than one year
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Medical Information (check all that apply):</label>
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input type="checkbox" id="mi-1" name="mi" value="Second opinion">
+                                        Second opinion
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="mi-2" name="mi" value="Clinical trial">
+                                        Clinical trial
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="mi-3" name="mi" value="Treatment more than 50 miles from home">
+                                        Treatment more than 50 miles from home
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="mi-4" name="mi" value="Hydrocephalus">
+                                        Hydrocephalus
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="mi-5" name="mi" value="Seizures">
+                                        Seizures
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="mi-6" name="mi" value="Psychosis">
+                                        Psychosis
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="mi-7" name="mi" value="Posterior fossa syndrome">
+                                        Posterior fossa syndrome
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="mi-8" name="mi" value="Shunt">
+                                        Shunt
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="mi-9" name="mi" value="Developmental delay">
+                                        Developmental delay
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="mi-10" name="mi" value="Autism">
+                                        Autism
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Treatment (check all that apply):</label>
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input type="checkbox" id="treatment-1" name="treatment" value="Surgery only">
+                                        Surgery only
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="treatment-2" name="treatment" value="Surgery - Gamma knife">
+                                        Surgery - Gamma knife
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="treatment-3" name="treatment" value="Radiation - Photon">
+                                        Radiation - Photon
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="treatment-4" name="treatment" value="Radiation - Proton">
+                                        Radiation - Proton
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="treatment-5" name="treatment" value="Chemotherapy">
+                                        Chemotherapy
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="treatment-6" name="treatment" value="Stem cell transplant">
+                                        Stem cell transplant
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Physical Effects (check all that apply):</label>
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input id="physical-1" type="checkbox" name="physical-Effects" value="Hearing loss">
+                                        Hearing loss
+                                    </label>
+                                    <label>
+                                        <input id="physical-2" type="checkbox" name="physical-Effects" value="Vision loss or cuts">
+                                        Vision loss or cuts
+                                    </label>
+                                    <label>
+                                        <input id="physical-3" type="checkbox" name="physical-Effects" value="Gait challenges">
+                                        Gait challenges
+                                    </label>
+                                    <label>
+                                        <input id="physical-4" type="checkbox" name="physical-Effects" value="Hair loss">
+                                        Hair loss
+                                    </label>
+                                    <label>
+                                        <input id="physical-5" type="checkbox" name="physical-Effects" value="Seizures">
+                                        Seizures
+                                    </label>
+                                    <label>
+                                        <input id="physical-6" type="checkbox" name="physical-Effects" value="Fatigue">
+                                        Fatigue
+                                    </label>
+                                    <label>
+                                        <input id="physical-7" type="checkbox" name="physical-Effects" value="Wheelchair/walker">
+                                        Wheelchair/walker
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Cognitive Effects (check all that apply):</label>
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input type="checkbox" id="cognitive-1" name="Cognitive-effects" value="Short term memory loss">
+                                        Short term memory loss
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="cognitive-2" name="Cognitive-effects" value="Slowed processing">
+                                        Slowed processing
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="cognitive-3" name="Cognitive-effects" value="Executive functioning challenges (organization)">
+                                        Executive functioning challenges (organization)
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" id="cognitive-4" name="Cognitive-effects" value="Impulse control">
+                                        Impulse control
+                                    </label>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label>Emotional Effects (check all that apply):</label>
+                                <div class="checkbox-group">
+                                    <label>
+                                        <input type="checkbox" name="Emotional-effects" id="Emotional-1" value="Flexibility">
+                                        Flexibility
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="Emotional-effects" id="Emotional-2" value="Anger control">
+                                        Anger control
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="Emotional-effects" id="Emotional-3" value="Motivation">
+                                        Motivation
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="Emotional-effects" id="Emotional-4" value="Decision making">
+                                        Decision making
+                                    </label>
+                                    <label>
+                                        <input type="checkbox" name="Emotional-effects" id="Emotional-5" value="Reading social cues">
+                                        Reading social cues
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- Submit Button -->
+                        <div class="submit-container">
+                            <input type="submit" value="Submit Application" class="submit-btn" name="action">
+                            <p style="margin-top: 1rem; color: #6c757d; font-size: 0.9rem;">
+                                By submitting this form, you agree to be contacted by CBTF staff regarding mentor matching opportunities.
+                            </p>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact section-->
+    <section class="bg-light" id="services">
+        <div class="container px-4">
+            <div class="row gx-4 justify-content-center">
+                <div class="col-lg-8">
+                    <h2 class="text-decoration-underline">Contact Us</h2>
+                    <div class="margin-expand-top">
+                        <p><strong>Regina Karchner - Mentor Program Director:</strong> rkarchner@cbtf.org</p>
+                        <p><strong>Stephanie Freeman - Mentor Program Director:</strong> sfreeman@cbtf.org</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer-->
+    <footer class="py-5 bg-dark">
+        <div class="container px-4">
+            <p class="m-0 text-center text-white">
+                ©2025 Children's Brain Tumor Foundation - 1460 Broadway - New York, NY - 10036 
+            </p>
+        </div>
+    </footer>
+    
+    <!-- Bootstrap core JS-->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Firebase SDK - Use consistent compat versions -->
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.22.0/firebase-firestore-compat.js"></script>
+    
+    <!-- Your custom scripts - load in correct order -->
+    <script src="static/js/scripts.js"></script>
+    <script src="static/js/app.js"></script>
+</body>
+
+</html>
